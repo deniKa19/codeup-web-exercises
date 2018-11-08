@@ -1,0 +1,65 @@
+.fancy-header {
+    color: purple;
+}
+
+
+table img {
+    width:500px;
+    height:400px;
+}
+
+h1 {
+    text-align: center;
+}
+.center {
+    text-align: center;
+}
+
+h1, h2 {
+    color: darkmagenta;
+    text-decoration: underline;
+}
+
+body {
+    background-color: lightgrey;
+    background-image: url(../images/bluepaint.jpg);
+    background-repeat: repeat-x;
+}
+
+ul {
+    list-style: square;
+}
+
+
+
+html {
+    font-family: Skia;
+}
+
+a:visited {
+    color: red;
+}
+
+a:hover {
+    color: black;
+}
+
+a:unvisited {
+    color: blue;
+}
+
+.prices {
+    padding: 20px;
+    border-collapse: collapse;
+}
+
+.prices th {
+    border: 2px solid black;
+}
+
+.prices td {
+    padding: 20px;
+    border: 2px solid black;
+}
+
+
