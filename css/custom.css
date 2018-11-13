@@ -1,0 +1,26 @@
+h1 {
+    padding: 0;
+    margin: 0 auto;
+    width: 100%;
+    background-color: white;
+    opacity: 0.6;
+    text-align: center;
+
+}
+
+.whitebackground {
+    opacity: 0.6;
+}
+
+.jumbotron {
+    padding: 0;
+    width: 100%;
+}
+
+img {
+    width: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}

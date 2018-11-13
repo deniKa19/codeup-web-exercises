@@ -1,53 +1,3 @@
-.nav-links>li {
-    list-style-type: none;
-    display: inline-block;
-    padding: 1.2em;
-    margin: 0;
-    background-color: none;
-}
-
-.nav-links {
-    text-align: right;
-}
-
-.alert-info {
-    display: none;
-}
-
-.sub-section {
-    float: left;
-    width: 40%;
-    text-align: justify;
-    margin-top: 50px;
-    font-style: italic;
-}
-
-.main {
-    float: left;
-    width: calc(60% - 3em);
-    text-align: justify;
-    margin: 3em;
-}
-
-
-@media screen and (max-width:768px) {
-    .alert-info {
-        border: 1px solid grey;
-        background-color: aqua;
-        padding: 20px;
-    }
-}
-
-@media screen and (max-width:768px) {
-    .nav-links>li {
-        position: center;
-        border: 1px solid lightgrey;
-        background-color: lightgrey;
-    }
-}
-
-
-
 
 body {
     font-family: arial;
@@ -56,20 +6,17 @@ body {
 
 h1 {
     text-align: center;
-    font-siz3: 3em;
+    font-size: 3em;
 }
 
 nav {
-    float: right;
+    text-align: center;
 }
 
 ul {
     padding: 0;
 }
 
-img {
-    width: 100%;
-}
 
 li {
     list-style: none;
@@ -84,9 +31,76 @@ footer {
 }
 
 li>a {
-    display:
+    display: block;
+    padding: 20px 0;
 }
-@media screen and (max-width:768px) {
 
+.hidden-on-mobile {
+    text-align: center;
+    margin-top: 30px;
+}
 
+.hidden-on-mobile a {
+    background-color: azure;
+    padding: 20px 0;
+    display: block;
+    font-style: normal;
+    border: 1px solid grey;
+}
+
+.hidden-on-mobile a:visited, .hidden-on-mobile a:link {
+    text-decoration: none;
+}
+
+.hidden-on-desktop {
+    border: 1px solid grey;
+    background-color: aqua;
+    padding: 10px;
+    text-align: center;
+}
+
+.sub-section {
+    margin-top: 50px;
+    font-style: italic;
+    float: left;
+}
+
+.main>p {
+    padding-right: 40px;
+    float: left;
+}
+
+@media screen and (min-width:768px) {
+    h1 {
+        text-align: left;
+        font-size: 2.5em;
+        float: left;
+    }
+    img {
+        margin-top: 40px;
+    }
+    nav {
+        float: right;
+    }
+    li {
+        float: left;
+        margin-left: 30px;
+        list-style: none;
+        padding: 0;
+        background-color: white;
+    }
+    section {
+        float: left;
+    }
+
+    .sub-section {
+        margin-top: 0;
+    }
+    .hidden-on-desktop {
+        display: none;
+    }
+    footer {
+        margin-top: 200px;
+        clear: both;
+    }
 }
