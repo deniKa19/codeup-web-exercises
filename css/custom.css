@@ -1,20 +1,22 @@
 h1 {
     padding: 0;
-    margin: 0 auto;
     width: 100%;
     background-color: white;
     opacity: 0.6;
-    text-align: center;
 
 }
+
 
 .whitebackground {
     opacity: 0.6;
 }
 
-.jumbotron {
-    padding: 0;
-    width: 100%;
+.jumbotron-fluid {
+    text-align: center;
+    height: 50px;
+    width: 770px;
+    overflow: auto;
+    margin-bottom: 50px;
 }
 
 img {
@@ -24,3 +26,6 @@ img {
 * {
     box-sizing: border-box;
 }
+
+
+
