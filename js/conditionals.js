@@ -17,9 +17,34 @@
  */
 
 /* ########################################################################## */
-var enterNumber = confirm("Would you like to enter a number?")
-if (enterNumber) {
 
+
+function addingNumber(enterNumber) {
+    return enterNumber + 100;
+}
+
+var addedTotal = addingNumber(enterNumber)
+alert(enterNumber + " + 100 equals: " + addedTotal);
+
+var userWantstoEnterNumber = confirm("Would you like to enter a number?");
+if )userWantstoEnterNumber) {
+    var userNumber = prompt("Enter a number:");
+    if (!isNaN(parseFloat(userNumber))) {
+        if (enterNumber % 2 === 0) {
+            alert("this number is even");
+        } else {
+            alert("this number is odd");
+        }
+        if (userNumber > 0) {
+            alert("this number is positve");
+        } else {
+            alert("this number is negative");
+        }
+        alert(userNumber + "plus 100 is" + (parseFloat(userNumber) + 100));
+
+    } else {
+        alert("This is not a valid number");
+    }
 }
 
 
@@ -67,6 +92,36 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * function to show it to the user.
  */
 
+function analyzeColor(color) {
+    color = color.toLowerCase();
+    if (color === "red") {
+        console.llog("roses are red");
+    } else if(color === "orange") {
+        return "orange you glad i didnt say banana";
+    } else if(color === "yellow") {
+        return "bananas are yellow";
+    } else if(color === "green") {
+        return "the grass is green";
+    } else if(color === "blue") {
+        return "the sky is blue";
+    } else if(color === "indigo") {
+        return ""
+    } else if(color === "violet") {
+        return "";
+    } else {
+        return "I do not know that color"
+    }
+}
+
+
+
+console.log(randomColor);
+
+console.log(analyzeColor(randomColor));
+
+var userColor = prompt("What color do you want to analyze?");
+
+
 /* ########################################################################## */
 
 /**
@@ -98,3 +153,5 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  */
 // Generate a random number between 0 and 6
 // var luckyNumber = Math.floor(Math.random() * 6);
+
+
