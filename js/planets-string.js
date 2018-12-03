@@ -20,7 +20,7 @@
 
     var htmlString = "<ul><li>";
 
-    htmlString += planetsArray.join("</li></li>");
+    htmlString += planetsArray.join("</li><li>");
 
     htmlString += "</li></ul>";
 
@@ -28,8 +28,8 @@
 
 
     // this is a faster way of doing the answer above//
-    //document.body.innerHTML += "<ul><li>"
-    //+ planetsArray.join("</li></li>") + "</li></ul>";
+    document.body.innerHTML += "<ul><li>"
+    + planetsArray.join("</li><li>") + "</li></ul>";
 
     /**
      * TODO:
