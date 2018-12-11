@@ -24,13 +24,15 @@ for (var i = 0; i < 10; i++) {
 
 
 //this sets up a pyramid structure
-var i,x,y;
+var i,x, y
+
 for (i = 0; i < 10; i++) {
     for (x =0; x < i; x++) {
+
         y = y+(i);
     }
     console.log(y);
-    y='';
+    y = '';
 }
 
 

@@ -32,3 +32,35 @@ for (var k = 0; k<employeeArray.length; k++){
     employeeList += employeePick+ '\n';
 }
 console.log('The list of employees, sorted by number of sales is:\n' + employeeList);
+
+
+//BONUS PRACTICE FOR ASSESMENT #2
+
+//Write a function named getHighest() that takes in an array of numbers and returns the highest number
+//ex. getHighest([3, 2, 1, Infinity]) = Infinity
+var numbersArray = [1, 3, 5, 6, 20, 19];
+function getHighest(numbersArray) {
+   return
+
+}
+
+
+//Write a function named getLowest() that takes in an array of numbers and returns the lowest number
+//ex. getLowest([5, 4, 2, -100]) = -100
+
+function getLowest(arrayNumber) {
+    var arrayNumber = []
+}
+
+
+//Write a function called sumAllNumbers() that takes in two-dimentional array of numbers and returns the sum of all numbers added together
+
+var arrayOfNumbers = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+];
+
+//ex sumAllNumbers(arrayofNumbers) = 45
+
+function sumAllNumbers()

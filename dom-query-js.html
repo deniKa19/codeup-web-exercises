@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>DOM: Query and Modify</title>
+</head>
+<body>
+
+<h1 id="main-header">Hello World!</h1>
+<ul>
+    <li data-dbid="1">Item 1</li>
+    <li data-dbid="2">Item 2</li>
+    <li data-dbid="3">Item 3</li>
+    <li data-dbid="4">Item 4</li>
+    <li data-dbid="5">Item 5</li>
+</ul>
+<h2 id="sub-header">Hello Again.</h2>
+<p class="sub-paragraph">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+    aliquip ex ea commodo consequat. Duis aute irure dolor in
+    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+    culpa qui officia deserunt mollit anim id est laborum.
+</p>
+
+
+<button id="btn1">Click1</button>
+<button id="btn2">Click2</button>
+<button id="btn3">Click3</button>
+<button id="btn4">Click4</button>
+
+<button id="btn5">Remove5</button>
+<button id="btn6">Remove6</button>
+<button id="btn7">Remove7</button>
+<button id="btn8">Remove8</button>
+
+<script>
+    (function() {
+        "use strict";
+        // TODO: Uncomment next line and get the main header element by id
+        var mainHeader = document.getElementById('main-header');
+        var changeMainHeader = function() {
+            mainHeader.innerHTML = "JavaScript is Cool"
+            //console.log(mainHeader.innerHTML);
+
+        }
+
+            var btn1 = document.getElementById('btn1');
+            btn1.addEventListener('click', changeMainHeader, false);
+
+            var removeMainHeader = function() {
+                btn1.removeEventListener('click', changeMainHeader, false);
+                mainHeader.innerHTML = "Hello World!";
+            }
+            var btn5 = document.getElementById('btn5');
+            btn5.addEventListener('click', removeMainHeader, false);
+        // TODO: Set inner html of mainHeader to "JavaScript is Cool"
+
+
+        // TODO: Uncomment the next line and get the sub header element by id
+        var subHeader = document.getElementById('sub-header');
+        var changeSubHeader = function() {
+            subHeader.style.color = 'blue';
+        }
+
+        var btn2 = document.getElementById('btn2');
+        btn2.addEventListener('click', changeSubHeader, false);
+
+        var removeSubHeader = function() {
+            btn2.removeEventListener('click', changeSubHeader, false);
+            subHeader.style.color = 'black';
+        }
+        var btn6 = document.getElementById('btn6');
+        btn6.addEventListener('click', removeSubHeader, false);
+
+
+
+        // TODO: Set the text color of subHeader to blue
+
+        // TODO: Uncomment the next line and get all list items
+
+        var changeListItems = function() {
+            var listItems = document.getElementsByTagName('li');
+            for (var i = 0; i < listItems.length; i++) {
+                i += 1
+                if (i < listItems.length)
+                    listItems[i].style.color = 'grey';
+            }
+            listItems[0].style.color = 'blue';
+        }
+
+        var btn3 = document.getElementById('btn3');
+        btn3.addEventListener('click', changeListItems, false);
+
+        // TODO: Set text color on every other list item to grey
+        // TODO: Set text color of li with dbid = 1 to blue
+
+        // TODO: Uncomment the next line and get all elements with class name sub-paragraph
+
+        var changeSubParagraphs = function() {
+            var subParagraphs = document.getElementsByClassName('sub-paragraph');
+            console.log(subParagraphs);
+            subParagraphs[0].innerHTML = "Missions Accomplished!"
+        }
+
+        var btn4 = document.getElementById('btn4');
+        btn4.addEventListener('click', changeSubParagraphs, false);
+        // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
+    })();
+</script>
+</body>
+</html>

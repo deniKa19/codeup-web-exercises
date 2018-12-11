@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Google Maps API</title>
+    <style type="text/css">
+        #map-canvas {
+            width: 770px;
+            height: 481px;
+        }
+    </style>
+</head>
+<body>
+    <div id="map-canvas"></div>
+    <input type="text" id="address">
+    <button id="locate">Locate</button>
+    <script type="text/javascript">
+        (function() {
+            "use script";
+
+            var mapOptions = {
+                zoom: 20,
+                center: {
+                    lat: 29.426791,
+                    lng: -98.489602
+                }
+            };
+            var codeup = {lat: 29.426791, lng: -98.489602};
+            var geocoder = new google.maps.Geocoder();
+            var btn = document.getElementById('locate');
+
+            btn.addEventListener('click', function() {
+                var myAddress = document.getElementById('address').value;
+                geocoder.geocode({ "address": myAddress }, function(result, status) {
+                    if (status === google.maps.GeocoderStatus.OK) {
+                        map.setCenter(results[0].geometry.location);
+                        var tempMarker = new google.maps.Marker({
+                            position: results[0].geometry.location,
+                            map: map
+                        });
+                        var infowindow = new google.maps.InfoWindow({
+                            content: "<h1>Favorite Restaurant.</h1>"
+                        });
+                        infowindow.open(map, tempMarker);
+                    } else {
+                        alert("Geocoding was not successful" + status);
+                    }
+                });
+            });
+
+            var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+
+    })();
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBApYl38Y6dSgsGrZqPLnM5AbhFrR-Tx3g"></script>
+</body>
+</html>
