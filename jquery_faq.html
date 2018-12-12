@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery Faq</title>
+    <style>
+        .invisible {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hide-div">
+        <h1>Would you like to sign up for our newsletter?</h1>
+        <span>X</span>
+    </div>
+    <h2>10 FAQs about national parks</h2>
+    <div>
+        <dl>
+            <dt>Question 1.</dt>
+            <dd class="invisible">What is the lasrgest national park site?</dd>
+            <dt>Question 2.</dt>
+            <dd class="invisible">What is the smallest national park site?</dd>
+            <dt>Question 3.</dt>
+            <dd class="invisible">What is the most visited national park?</dd>
+            <dt>Question 4.</dt>
+            <dd class="invisible">How many people visit the national parks?</dd>
+            <dt>Question 5.</dt>
+            <dd class="invisible">How do I obtain a park entrance pass?</dd>
+            <dt>Question 6.</dt>
+            <dd class="invisible">Where can I find a park map?</dd>
+            <dt>Question 7.</dt>
+            <dd class="invisible">How do I reserve a tour in a park?</dd>
+            <dt>Question 8.</dt>
+            <dd class="invisible">Can I bring my pet to a national park?</dd>
+            <dt>Question 9.</dt>
+            <dd class="invisible">How old is the National Park System?</dd>
+            <dt>Question 10.</dt>
+            <dd class="invisible">How many employees are in the National Park Services?</dd>
+        </dl>
+    </div>
+
+    <div>
+        <h3 id="national-park">Arches</h3>
+        <ul id="park-facts">
+            <li>It contains the highest density of natural arches in the world.</li>
+            <li>It covers a total area of 76,359 acres.</li>
+            <li>Arches was made a national park on November 12, 1971.</li>
+            <li>It lies in the Mountain time zone.</li>
+        </ul>
+    </div>
+    <div>
+        <h3 id="national-park">Badlands</h3>
+        <ul id="park-facts">
+            <li>It used to be a sea.</li>
+            <li>It is a hotspot for fossils.</li>
+            <li>It was used as a boming range during World War II.</li>
+            <li>The terrain was shaped by water.</li>
+        </ul>
+    </div>
+    <div>
+        <h3 id="national-park">Everglades</h3>
+        <ul id="park-facts">
+            <li>Often called the "River of Grass"</li>
+            <li>The average depth is only 4-5 feet deep, the deepest point is only 9 feet.</li>
+            <li>It's North America's largest subtropical wetland ecosystems.</li>
+            <li>It is more than 1,508,538 acres in size.</li>
+        </ul>
+    </div>
+
+    <h2 class="register">Would you like to register for this site?</h2>
+    <br>
+    <a href="#" id="link">Click this Link</a>
+
+    <button id="btn">Make things yellow</button>
+
+    <script src="js/jquery-2.2.4.js"></script>
+    <script>
+
+
+        "use script";
+
+        $(document).ready(function() {
+
+
+            $('#link').click(function() {
+                //event.preventDefault();
+                $('dd').toggleClass('invisible');
+            });
+            $('dt').click(function() {
+                $(this).next().toggleClass('invisible');
+            });
+
+
+            //EXERCISE 2
+            $('#btn').click(function() {
+                $('ul').each(function() {
+                    $(this).children().last().css('background-color', 'yellow');
+                })
+            })
+
+            $('h3').click(function() {
+                $(this).next().css('font-weight', 'bold');
+            });
+
+            $('li').click(function() {
+                $(this).parent().children().first().css('color', 'blue');
+            });
+//the name 'this' is what get each individual li
+
+            //EXERCISE 3
+            $('span').click(function() {
+                $('.hide-div').hide();
+            })
+
+            $('ul').hide();
+            $('h3').click(function() {
+                $(this).next().slideToggle();
+            })
+
+            $('.register').hide();
+            $('.register').fadeIn(18000);
+
+
+        });
+
+
+    </script>
+</body>
+</html>
