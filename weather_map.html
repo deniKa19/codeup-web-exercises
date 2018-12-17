@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Map</title>
+</head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<style>
+    .background-blue {
+        background-color: deepskyblue;
+    }
+    .lightGray {
+        background-color: #E6ECF0;
+    }
+    .border {
+        border: 5px solid dimgray;
+    }
+</style>
+<body class="background-blue">
+
+        <h1>Weather Map</h1>
+        <form action="">
+            <div>
+                <input id="lat" type="text">
+                <input id="long" type="text">
+                <input type="submit">
+            </div>
+        </form>
+
+         <h3 id="name"></h3>
+        <div class="container">
+        <div class="row text-center">
+        <div class="col-md-4 lightGray border">
+            <img id="icon"></img>
+            <h3><span id="min_temp"></span>/<span id="max_temp"></span></h3>
+            <p><span id="sky"></span>: <span id="weather"></span></p>
+            <p>Humidity: <span id="humidity"></span></p>
+            <p>Wind: <span id="wind"></span></p>
+            <p>Pressure: <span id="pressure"></span></p>
+        </div>
+            <div class="col-md-4 lightGray border">
+                <img id="icon2"></img>
+                <h3><span id="min_temp2"></span>/<span id="max_temp2"></span></h3>
+                <p><span id="sky2"></span>: <span id="weather2"></span></p>
+                <p>Humidity: <span id="humidity2"></span></p>
+                <p>Wind: <span id="wind2"></span></p>
+                <p>Pressure: <span id="pressure2"></span></p>
+            </div>
+        <div class="col-md-4 lightGray border">
+            <img id="icon3"></img>
+            <h3><span id="min_temp3"></span>/<span id="max_temp3"></span></h3>
+            <p><span id="sky3"></span>: <span id="weather3"></span></p>
+            <p>Humidity: <span id="humidity3"></span></p>
+            <p>Wind: <span id="wind3"></span></p>
+            <p>Pressure: <span id="pressure3"></span></p>
+        </div>
+        </div>
+        </div>
+        <div class="lightGray" id="map-container" width="300px" height="250">
+
+        </div>
+
+
+
+
+    <script src="js/jquery-2.2.4.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBApYl38Y6dSgsGrZqPLnM5AbhFrR-Tx3g"></script>
+    <script>
+        $(document).ready(function() {
+
+            //$.ajax('http://api.openweathermap.org/data/2.5/weather?q=San Antonio,us&appid=cd1e5f60fc7b543ad2bc51fbdd434780&units=imperial')
+
+
+                lat = 29.425967;
+                long = -99;
+
+
+             $.ajax('http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + long + ',&appid=cd1e5f60fc7b543ad2bc51fbdd434780&units=imperial')
+                .done(function (weather) {
+                    document.getElementById("icon").src = "http://openweathermap.org/img/w/"+ weather.weather[0].icon +".png"
+                    document.getElementById("name").innerHTML = weather.name;
+                    document.getElementById("min_temp").innerHTML = weather.main.temp_min;
+                    document.getElementById("max_temp").innerHTML = weather.main.temp_max;
+                    document.getElementById("sky").innerHTML = weather.weather[0].main;
+                    document.getElementById("weather").innerHTML = weather.weather[0].description;
+
+                    document.getElementById("humidity").innerHTML = weather.main.humidity;
+                    document.getElementById("wind").innerHTML = weather.wind.speed;
+                    document.getElementById("pressure").innerHTML = weather.main.pressure;
+                    console.log(weather);
+
+                });
+
+            $.ajax('http://api.openweathermap.org/data/2.5/forecast?lat='+ lat + '&lon=' + long + ',&appid=cd1e5f60fc7b543ad2bc51fbdd434780&units=imperial')
+                .done(function (weather) {
+
+                   document.getElementById("icon2").src = "http://openweathermap.org/img/w/"+ weather.list[0].weather[0].icon +".png"
+                     document.getElementById("min_temp2").innerHTML = weather.list[0].main.temp_min;
+                     document.getElementById("max_temp2").innerHTML = weather.list[0].main.temp_max;
+                     document.getElementById("sky2").innerHTML = weather.list[0].weather[0].main;
+                     document.getElementById("weather2").innerHTML = weather.list[0].weather[0].description;
+                     document.getElementById("humidity2").innerHTML = weather.list[0].main.humidity;
+                     document.getElementById("wind2").innerHTML = weather.list[0].wind.speed;
+                     document.getElementById("pressure2").innerHTML = weather.list[0].main.pressure;
+
+                    document.getElementById("icon3").src = "http://openweathermap.org/img/w/"+ weather.list[10].weather[0].icon +".png"
+                    document.getElementById("min_temp3").innerHTML = weather.list[10].main.temp_min;
+                    document.getElementById("max_temp3").innerHTML = weather.list[10].main.temp_max;
+                    document.getElementById("sky3").innerHTML = weather.list[10].weather[0].main;
+                    document.getElementById("weather3").innerHTML = weather.list[10].weather[0].description;
+                    document.getElementById("humidity3").innerHTML = weather.list[10].main.humidity;
+                    document.getElementById("wind3").innerHTML = weather.list[10].wind.speed;
+                    document.getElementById("pressure3").innerHTML = weather.list[10].main.pressure;
+
+                });
+
+                const myFav = {
+                    lat:  29.4265744,
+                    lng: -98.4941328
+                };
+                // Set our map options
+
+                var mapOptions = {
+                    // Set the zoom level
+                    zoom: 19,
+                    // This sets the center of the map at our location
+                    center: myFav
+                };
+                // Render the map
+                var map = new google.maps.Map(document.getElementById("map-container"), mapOptions);
+                console.log(map)
+                // Add the marker to our existing map
+                var zocalo = new google.maps.Marker({
+                    position: myFav,
+                    map: map
+                });
+               /* // Create a new infoWindow object with content
+                var infowindow = new google.maps.InfoWindow({
+                    content: "The pozole in downtown " +
+                        "<br>" +
+                        "<img src='https://imagesvc.timeincapp.com/v3/mm/image?url=https%3A%2F%2Fcdn-image.myrecipes.com%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fmedium_2x%2Fpublic%2Fimage%2Frecipes%2Fsl%2F13%2F02%2Fpozole-sl-x.jpg%3Fitok%3DEWrd71Yj&w=1000&q=70'>",
+                    height: '100vh'
+                });
+// Open the window using our map and marker
+                infowindow.open(map, zocalo);*/
+
+
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>

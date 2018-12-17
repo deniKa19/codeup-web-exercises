@@ -112,15 +112,19 @@
             //EXERCISE 3
             $('span').click(function() {
                 $('.hide-div').hide();
-            })
+            });
 
             $('ul').hide();
             $('h3').click(function() {
                 $(this).next().slideToggle();
-            })
+            });
 
             $('.register').hide();
-            $('.register').fadeIn(18000);
+
+            setTimeout(function() {
+                $('.register').fadeIn(8000);
+            }, 8000);
+
 
 
         });

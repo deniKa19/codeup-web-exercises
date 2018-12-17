@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax Blog</title>
+</head>
+<body>
+    <div id="posts">
+
+    </div>
+
+
+    <script src="js/jquery-2.2.4.js"></script>
+    <script>
+        "use script";
+        $(document).ready(function() {
+
+            var tableBody = $('#post');
+
+            function letterCase(str) {
+                str = str.toLowerCase().split(' ');
+                for (var i = 0; i < str.length; i++) {
+                    str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
+                }
+                return str.join(' ');
+            }
+            function makeTable() {
+                $.get('data/blog.json').done(function (data) {
+                    data.forEach(function (element, index, array) {
+                        var html = "";
+                        html += "<tr>" + "<td>" + element.title + "</td>" ;
+                        html += "<td>" + element.content + "</td>";
+                        html += "<td>" + element.date + "</td>";
+                        html += "<td>" + letterCase(element.categories.join(', '));
+                        html += "<td>" + "</td>" + "</tr>";
+                        tableBody.append(html)
+                    });
+                });
+            }
+            makeTable();
+        })
+
+
+    </script>
+</body>
+</html>
